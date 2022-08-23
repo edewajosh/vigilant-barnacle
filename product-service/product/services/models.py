@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 class Service(models.Model):
@@ -8,6 +9,7 @@ class Service(models.Model):
         (OUTGOING, 'Outgoing'),
     ]
     name = models.CharField(max_length=255, null=False)
+    service_id = models.UUIDField(default=uuid.uuid4, editable=False)
     created_by = models.EmailField(max_length=50, null=False)
     type_of_transaction = models.CharField(max_length=3,
                                         choices=type_of_transaction_choices, 

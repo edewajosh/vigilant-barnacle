@@ -1,6 +1,7 @@
 import requests
 
-API_URL = ' http://127.0.0.1:8001/'
+API_URL = 'http://127.0.0.1:8001/'
+AUTH_API_URL = 'http://127.0.0.1:8000/'
 
 
 # Validate if the product/service that is payment is being made exists
@@ -31,5 +32,13 @@ def update_service_payment_status(service_uuid):
         }
         res = requests.put(api_url, json=data)
         return res.status_code
+    except requests.exceptions.RequestException:
+        pass
+
+def user_verify_token(token):
+    try:
+        api_url = f'{AUTH_API_URL}api/token/verify/'
+        response = requests.post(api_url, json={'token': token})
+        return response.status_code
     except requests.exceptions.RequestException:
         pass

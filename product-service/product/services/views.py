@@ -5,7 +5,7 @@ from .models import Service
 
 
 class ServiceViewSet(ModelViewSet):
-
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
+    lookup_field = 'service_id'
 

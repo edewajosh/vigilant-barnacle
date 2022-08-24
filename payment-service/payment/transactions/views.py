@@ -7,7 +7,7 @@ from .serializers import TransactionSerializer
 
 from .utils import fetch_service, update_service_payment_status, user_verify_token
 
-API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2MTQyNzEyMywiaWF0IjoxNjYxMzQwNzIzLCJqdGkiOiIzZWNmN2U5YmMzMDY0ZjU0OGJmYjc4MTk3OGRlYTZkNSIsInVzZXJfaWQiOjF9.pFC_t_55sGTQf7VGLxupCJWtfqN5rmVcrfuQ1INf2CM'
+API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxMzQ1Mzg3LCJpYXQiOjE2NjEzNDUwODcsImp0aSI6IjVlMDFlODkyYWMxOTQwOTJhMTViMWJjMDFkZWExODkyIiwidXNlcl9pZCI6ImphbmUuZG9lQHRlc3QuY29tIn0.avaFpRHeI437Fn0ytpNHuUuRkA8_K0o31xo2hSz23Pg'
 
 class TransactionViewSet(ModelViewSet):
     serializer_class = TransactionSerializer
@@ -25,6 +25,6 @@ class TransactionViewSet(ModelViewSet):
             return super().perform_create(serializer)
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
-    # def list(self, request, *args, **kwargs):
-    #     user_verify_token(API_TOKEN)
-    #     return super().list(request, *args, **kwargs)
+    def list(self, request, *args, **kwargs):
+        user_verify_token(API_TOKEN)
+        return super().list(request, *args, **kwargs)

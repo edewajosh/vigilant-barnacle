@@ -173,6 +173,12 @@ button {
   flex-direction: column;
   align-items: center;
 }
+.sidebarListItem{
+  cursor: pointer;
+  display: block;
+  flex-direction: row;
+  align-items: center;
+}
 
 .navbarListItemName,
 .navbarListItemNameActive {

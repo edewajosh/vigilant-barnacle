@@ -44,8 +44,8 @@ const SignIn = () => {
             const userDetails = await userCredential.json()
             console.log('Line 45', userDetails)
             if(userDetails['access']){
+                navigate('/')
                 setToken(userDetails)
-                navigate('/dashboard')
             } 
         } catch (error) {
            console.error('Bad User Credentials')

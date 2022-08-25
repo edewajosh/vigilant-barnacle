@@ -5,8 +5,8 @@ import { LoginProvider } from '../context/LoginContext';
 
 const PrivateRoute = () => {
     const [token,] = useContext(LoginProvider)
-    console.log(token.length)
-    return token.length > 0 ? <Outlet /> : <Navigate to='/sign-in' />
+    console.log(token)
+    return token && token ? <Outlet /> : <Navigate to='/sign-in' />
 }
 
 export default PrivateRoute;

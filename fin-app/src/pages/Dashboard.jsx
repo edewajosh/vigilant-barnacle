@@ -1,7 +1,12 @@
+import Content from "../components/Content"
+import SideBar from "../components/SideBar"
 
 const Dashboard = () => {
   return (
-    <div className="profile">Dashboard</div>
+    <div className="row">
+      <SideBar />
+      <Content />
+    </div>
   )
 }
 

@@ -24,7 +24,8 @@ const SideBar = () => {
             <li className="sidebarListItem" onClick={() => navigate('/dashboard')}>
                 <p className={pathMatchRoute('/dashboard') ? 'navbarListItemNameActive': 'navbarListItemName'}>Service</p>
             </li>
-            <li className="sidebarListItem" onClick={() => navigate('/dashboard')}>
+            <li className="sidebarListItem" onClick={() => navigate('/add-service')}>
+              <p className={pathMatchRoute('/add-service') ? 'navbarListItemNameActive': 'navbarListItemName'}>Add Service</p>
             </li>
           </ul>
         </div>

@@ -44,7 +44,7 @@ const SignIn = () => {
             const userDetails = await userCredential.json()
             console.log('Line 45', userDetails)
             if(userDetails['access']){
-                navigate('/')
+                navigate('/dashboard')
                 setToken(userDetails)
             } 
         } catch (error) {

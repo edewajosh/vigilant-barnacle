@@ -6,7 +6,7 @@ const SERVICE_API_URL = 'http://127.0.0.1:8001/api/v1/product/services/'
 
 const Content = () => {
     const [packages, setPackages] = useState([])
-    const [create, setCreate] = useState(false)
+    // const [create, setCreate] = useState(false)
 
     const [token, ] = useContext(LoginProvider)
 

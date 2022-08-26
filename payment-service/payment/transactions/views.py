@@ -11,7 +11,7 @@ API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIi
 
 class TransactionViewSet(ModelViewSet):
     serializer_class = TransactionSerializer
-    queryset = ProcessTransaction.objects.all()
+    queryset = ProcessTransaction.objects.all().order_by('-updated_on')
 
     def create(self, request, *args, **kwargs):
         res = fetch_service(request.data['service_uuid'])

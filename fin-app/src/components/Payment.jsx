@@ -1,10 +1,11 @@
 
-const Payment = ({payment}) => {
+const Payment = ({service}) => {
   return (
-    <div>
-        <h2>{payment.transaction_id}</h2>
-        <p>{payment.service_uuid}</p>
-        <p>{payment.completed}</p>
+    <div className="content-container">
+        <h2>{service.name}</h2>
+        { service.type_of_transaction === 'IN'? <p>Incoming</p> : <p>Outgoing</p> }
+        <p>{service.created_by}</p>
+        <p>{service.description}</p>
     </div>
   )
 }

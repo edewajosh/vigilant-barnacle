@@ -35,10 +35,17 @@ class UserTests(APITestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
 
     def test_user_login(self):
-
         user = User.objects.create(email='jane.doe@test.com', username='jane.doe', is_active=True)
         user.set_password('10@testpass')
         user.save()
 
         response = self.client.login(email='jane.doe@test.com', password='10@testpass')
         self.assertTrue(response)
+
+    def test_inactive_user_login(self):
+        user = User.objects.create(email='jane.doe@test.com', username='jane.doe')
+        user.set_password('10@testpass')
+        user.save()
+
+        response = self.client.login(email='jane.doe@test.com', password='10@testpass')
+        self.assertFalse(response)
